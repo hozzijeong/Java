@@ -1,0 +1,10 @@
+쓰레드 : 프로그램에서 일하는 일꾼
+
+main일꾼
+
+Thread클래스(run,start)의 자손클래스로 객체를 생성
+	run( ) : 일꾼한테 동작시키고자하는내용
+	start( ) : 일꾼을 고용해서 고용한 일꾼에서 run() 메서드를 시킴
+
+BGMPlay bgmPlay = new BGMPlay();
+bgmPlay.start();

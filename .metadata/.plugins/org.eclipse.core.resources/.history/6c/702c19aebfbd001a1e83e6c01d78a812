@@ -1,0 +1,113 @@
+package ex01;
+import java.util.*;
+
+class Calc{
+	public void sort (int[] arr) {
+		int size = arr.length;
+		for(int i=0; i<size; i++) {
+			for(int j=0; j<size; j++) {
+				if(i!= j && arr[i] < arr[j]) {
+					int temp = arr[i];
+					arr[i] = arr[j];
+					arr[j] = temp;
+				}
+			}
+		}
+	}
+	
+	
+	public void add(int[]arr,ArrayList<Integer> array) {
+		for(int i=0; i<arr.length; i++) {
+			array.add(arr[i]);
+		}
+	}
+	
+	public void remove(ArrayList<Integer> array) {
+		for(int i=0; i<array.size(); i++) {
+			for(int j=0; j<array.size(); j++) {
+				if(i!=j && array.get(i) == array.get(j)) {
+					array.remove(j);
+				}
+			}
+		}
+	}
+	
+	public void setting(ArrayList<Integer> array,ArrayList<Integer> array2,ArrayList<Integer> array3) {
+		for(int i=0; i<array.size(); i++) {
+			array3.add(array.get(i));
+		}
+		for(int i=0; i<array2.size(); i++) {
+			array3.add(array2.get(i));
+		}
+	}
+}
+
+
+
+public class Programmas {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int answer [] = new int [5];
+		int [] arrA = {2,3,4,3,5};
+		int [] arrB = {1,6,7};
+		Calc c = new Calc();
+		ArrayList<Integer> arr = new ArrayList<>();
+		ArrayList<Integer> arr2 = new ArrayList<>();
+		ArrayList<Integer> temp = new ArrayList<>();
+		
+		
+		c.sort(arrA);
+		c.sort(arrB);
+		c.add(arrA, arr);
+		c.add(arrB, arr2);
+		
+		c.remove(arr);
+		c.remove(arr2);
+		
+		answer[0] = arr.size();
+		answer[1] = arr2.size();
+		
+		c.setting(arr, arr2, temp);
+		c.remove(temp);
+		answer[2] = temp.size();
+		temp.clear();
+		
+		
+		for(int i=0; i<arr.size(); i++) {
+			int check =-1;
+			for(int j=0; j<arr2.size(); j++) {
+				if(arr.get(i) == arr2.get(j)) {
+					check = j;
+				}
+			}
+			if(check == -1) {
+				temp.add(arr.get(i));
+			}
+		}
+		answer[3] = temp.size();
+		
+		
+		for(int i=0; i<arr.size(); i++) {
+			for(int j=0; j<arr2.size(); j++) {
+				if(arr.get(i) == arr2.get(j)) {
+					temp.add(arr.get(i));
+				}
+			}
+		}
+		
+		answer[4] = temp.size();
+		
+		for(int i=0; i<5; i++) {
+			System.out.print(answer[i]+" ");
+		}
+		
+		
+		
+		
+		
+		
+	}
+
+	
+	
+}
